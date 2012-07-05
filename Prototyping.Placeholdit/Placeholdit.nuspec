@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Placeholdit</id>
+    <version>1.0</version>
+    <title>Placehold.it_MVC</title>
+    <authors>Ed Charbeneau</authors>
+    <owners>Ed Charbeneau</owners>
+    <projectUrl>http://placehold.it</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Placeholdit is an MVC helper extension that uses the placehold.it service to create simple placeholder images. Great for rapid prototyping. Usage: @Html.Placehold(300, 300) generates a 300x300 gif image</description>
+    <releaseNotes>Initial Release</releaseNotes>
+    <copyright>Ed Charbeneau Copyright 2012</copyright>
+    <tags>Prototyping HTML MVC</tags>
+  </metadata>
+  <files>
+    <file src="C:\Users\echarbeneau\Documents\Visual Studio 2010\Projects\Prototyping\Prototyping.Placeholdit\bin\Release\Prototyping.Placeholdit.dll" target="content\bin\Prototyping.Placeholdit.dll" />
+	</files>
+</package>

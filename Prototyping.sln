@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototyping.Placeholdit", "Prototyping.Placeholdit\Prototyping.Placeholdit.csproj", "{0025D406-F6EE-4B03-838B-8AE048FEB97E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototyping.Ipsum", "Prototyping.Ipsum\Prototyping.Ipsum.csproj", "{5E02709B-82D1-4C74-B248-54CBD1D9411E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototyping.Placeholdit.Tests", "Prototyping.Placeholdit.Tests\Prototyping.Placeholdit.Tests.csproj", "{BF50CA8D-B2F0-4129-B801-857E0D76F25A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0025D406-F6EE-4B03-838B-8AE048FEB97E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0025D406-F6EE-4B03-838B-8AE048FEB97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0025D406-F6EE-4B03-838B-8AE048FEB97E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0025D406-F6EE-4B03-838B-8AE048FEB97E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E02709B-82D1-4C74-B248-54CBD1D9411E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E02709B-82D1-4C74-B248-54CBD1D9411E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E02709B-82D1-4C74-B248-54CBD1D9411E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E02709B-82D1-4C74-B248-54CBD1D9411E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF50CA8D-B2F0-4129-B801-857E0D76F25A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF50CA8D-B2F0-4129-B801-857E0D76F25A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF50CA8D-B2F0-4129-B801-857E0D76F25A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF50CA8D-B2F0-4129-B801-857E0D76F25A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
