@@ -48,3 +48,10 @@ NLipsum generator http://code.google.com/p/nlipsum/ for the Lorem Ipsum engine
 ##### Learn more
 You can see a demo as part of the tutorial in *Responsive design using Foundation with ASP.Net MVC*
 http://www.simple-talk.com/dotnet/asp.net/responsive-design-using-foundation-with-asp.net-mvc/
+
+##### Changelog
+**1.1**
+Added basic dd > dl element support
+
+**1.0**
+Initial Release
