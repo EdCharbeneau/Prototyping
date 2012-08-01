@@ -223,6 +223,21 @@ namespace Prototyping.Ipsum
         }
 
         /// <summary>
+        /// Gets a dl element containing lorem ipsum
+        /// </summary>
+        /// <example>To create a unordered list of Lorem Ipusm nested in HTML 'dl' tags.<code>@Html.dl()</code></example>
+        /// <param name="listCount">Number of list items to create</param>
+        /// <param name="wordCount">Number of words to create</param>
+        /// <param name="links">List item will contain a link, ex: href="#"</param>
+        /// <param name="dlAttributes">dl element attributes</param>
+        /// <param name="ddAttributes">dd element attributes</param>
+        /// <returns></returns>
+        public Ipsum dl(int listCount = 5, int wordCount = 2, bool links = false, object dlAttributes = null, object ddAttributes = null)
+        {
+            return CreateListHTMLIpsum("dl", "dd", listCount, links, ddAttributes, wordCount, dlAttributes);
+        }
+
+        /// <summary>
         /// Gets a static set of HTML paragraphs that resemble a blog post. (500 words with links and strong tags)
         /// </summary>
         /// <param name="htmlAttributes"></param>
