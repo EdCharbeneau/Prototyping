@@ -32,8 +32,9 @@
     <DocumentationFile>bin\Release\Prototyping.Ipsum.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NLipsum.Core">
-      <HintPath>bin\NLipsum.Core.dll</HintPath>
+    <Reference Include="NLipsum.Core, Version=0.9.0.0, Culture=neutral, PublicKeyToken=593e1df460e1bda0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\resources\NLipsum.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
