@@ -38,6 +38,8 @@ PM> Install-Package Prototyping_MVC
 @Html.Ipsum().h1().p().h2().p().h3().ol(10,3, true)
 //Image placeholder
 @Html.Placehold(300,300)
+//Table Builder
+@Html.Ipsum().Table(10,6,new string[]{"d","t","n"} )
 ```
 
 ####Credits

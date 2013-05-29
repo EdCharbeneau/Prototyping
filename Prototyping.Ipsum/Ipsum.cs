@@ -21,6 +21,7 @@ namespace Prototyping.Ipsum
         // @ipsum().ul(2, links: bool, attrib: "class", liAttrib: "class") // <ul><li attrib><a href="#">Lorem Ipsum</a></li></ul>
         private readonly HtmlHelper _html;
         private readonly List<string> _ipsum;
+        private readonly Random _gen;
 
         public Ipsum(HtmlHelper html)
         {
@@ -28,6 +29,7 @@ namespace Prototyping.Ipsum
                 throw new ArgumentNullException("html");
             _html = html;
             _ipsum = new List<string>();
+            _gen = new Random((int)DateTime.Now.Ticks);
         }
 
         /// <summary>
@@ -240,12 +242,92 @@ namespace Prototyping.Ipsum
         /// <summary>
         /// Gets a static set of HTML paragraphs that resemble a blog post. (500 words with links and strong tags)
         /// </summary>
-        /// <param name="htmlAttributes"></param>
         /// <returns></returns>
         public Ipsum BlogPost()
         {
             _ipsum.Add(@"<p>Lorem ipsum dolor sit amet, <strong>vim te tritani prodesset</strong> forensibus? Et vel justo simul, vix mutat impedit te, nam quas aliquip contentiones at? Legendos reprehendunt pro et. Vis decore tritani theophrastus id.</p><p>An nam propriae repudiare, mei duis inermis nominavi in? Duo cu scripta salutandi splendide, est an veniam <strong>disputando eloquentiam!</strong> Sit ut tale nusquam abhorreant, quando accumsan elaboraret an duo. In fugit abhorreant nam, mea cu errem essent oblique, an wisi vocibus eam. Iisque oblique torquatos per at, sea commodo malorum <a href=""#"">concludaturque</a> ut?</p><p>No pri vero pertinax! Eu ius clita definitionem? Ne quo labores nominavi, omnes apeirian salutandi te usu. Nec ferri iudico ne!</p><p>Ea ius veri laboramus. Nec an alia eripuit, pri error honestatis ei, nihil audiam id vel. Minim ancillae ad usu. Est omnes nominavi gloriatur cu, minim dissentiunt an ius. Legimus blandit eu sea, corpora apeirian postulant has an.</p><p>Prompta vivendo an mei. Eu mel utroque suscipiantur, perpetua oportere et vel. Qui te omnesque tincidunt. Vix utroque theophrastus et. Amet intellegam persequeris vix ut, cum eu velit facilisis.  </p><p>Est ut erant utamur voluptatibus, an ignota persecuti duo. Constituto dissentiunt ut mea, et eam discere expetendis reformidans. Eos dico definitiones cu, ius ex amet denique conclusionemque. Pri at unum rebum, pro ut alterum accumsan inimicus.</p><p>Vix id mnesarchum vituperata scripserit, vix ad adhuc maiestatis, eam no sint expetenda. Nec omnium disputando eu, adhuc dictas labitur sed ad! Ex etiam graeco pro. Cu malis elaboraret neglegentur ius, at errem solet vis. Accusata patrioque mei ne, in nonumes theophrastus mea, at his deserunt intellegat voluptaria. Quo cu intellegat instructior, sea tantas mucius legimus te. <em>Ut duo illud nullam reprimique, quaestio suavitate cum no!</em></p><p>Ex vide semper sadipscing vis! Mutat nihil eam at, hinc accusam mei no. Eos laudem mollis pericula ad, ne decore fierent torquatos has. Ea omnis placerat probatus eam, an fabulas comprehensam his, ex diceret perpetua sed.</p><p>Zril nonumes volumus ea cum, his quod ubique suscipiantur an. In mea facete iriure aliquip, quo in qualisque consetetur. Unum vero meliore ne usu. Euismod placerat quaerendum usu at, ut per illud lorem eripuit, ex mea euripidis definitiones. Ei facilis invidunt qui, mea facilis consectetuer id? Sed an officiis percipitur?</p><p>Ad usu antiopam definitionem. Ne eos volutpat forensibus. Est justo offendit neglegentur cu? Dictas explicari adolescens te vix.</p><p>No omnis urbanitas liberavisse mel, an esse atqui vix. Nemore nostrud complectitur eu duo, te nonumy delicata quo, ea pri novum bonorum dissentias. Veri atqui vocent in mea, quis percipitur mel ad, his postea postulant complectitur cu. An per dicunt euismod aliquam, adhuc iudico qui ut, discere apeirian voluptaria sit in. Ei movet delenit pri.</p><p>Per in inciderint dissentiet consequuntur, has sumo solet pertinax in? Ne mei ludus legimus, ius nominati antiopam constituto cu, quot nostrud voluptua quo ad. Eos habeo tractatos ei, sumo sale eos ex? Probo audiam an eam, nobis delicata mel ne? Sanctus scaevola no eos, dolore malorum voluptua vim ut.</p><p>Quo numquam complectitur ut, te pri suas facete, quod postea apeirian vel in. Cu pro vocibus <a href=""#"">oportere accusamus</a>.</p>");
             return this;
+        }
+
+
+        /// <summary>
+        /// Create a Table with random content USAGE: @Html.Ipsum().Table(10,6,new string[]{"d","t","n"} );
+        /// </summary>
+        /// <param name="rows">Number of Rows</param>
+        /// <param name="columns">Number of Columns</param>
+        /// <param name="ColumnTypes">A string Array representing the data types to put in the random generated column content t = Text, n= a number between 0 to 5000, d= a date between 1995 and now </param>
+        /// <returns></returns>
+        public Ipsum Table(int rows = 4, int columns = 4, string[] ColumnTypes = null)
+        {
+            return CreateTableHTMLIpsum(rows, columns, ColumnTypes);
+        }
+
+        private Ipsum CreateTableHTMLIpsum(int rows, int columns, string[] ColumnTypes)
+        {
+            List<string> DataTypes = new List<string>();
+            if (ColumnTypes == null)
+            {
+                for (int d = 0; d < columns; d++)
+                {
+                    DataTypes.Add( "t");
+                }
+            }
+            else if (ColumnTypes.Count() < columns)
+            {
+                int count = ColumnTypes.Count() - 1;
+                for (int d = 0; d < count; d++) {
+                    DataTypes.Add(ColumnTypes[d]);                
+                }
+                for (int d = count; d < columns; d++) {
+                    DataTypes.Add(ColumnTypes[count]);
+                }
+            }
+
+            TagBuilder table = new TagBuilder("table");
+            TagBuilder thead = new TagBuilder("thead");
+            TagBuilder thr = new TagBuilder("tr");
+                for (int c = 0; c < columns; c++)
+                {
+                    TagBuilder th = new TagBuilder("th");
+                    th.InnerHtml= GetWordsHtmlIpsum("a", 1, HtmlHelper.AnonymousObjectToHtmlAttributes(new { href = "#" }));
+                    thr.InnerHtml += th.ToString();
+                }
+                thead.InnerHtml += thr.ToString();
+            table.InnerHtml += thead.ToString();
+
+            TagBuilder tbody = new TagBuilder("tbody");
+            for (int r = 0; r < rows; r++) 
+            {
+                TagBuilder tr = new TagBuilder("tr");
+                for (int c = 0; c < columns; c++)
+                {
+                    TagBuilder td = new TagBuilder("td");
+                    switch (DataTypes[c]) {
+                        case "n": td.InnerHtml = String.Join(" ", RandomNumber()); td.MergeAttribute("style", "text-align:right"); break;
+                        case "d": td.InnerHtml = String.Join(" ", RandomDay()); break;
+                        default: td.InnerHtml = String.Join(" ", new LipsumGenerator().GenerateWords(1)); break;
+                    }
+                    tr.InnerHtml += td.ToString();
+                }
+                tbody.InnerHtml += tr.ToString();
+            }
+            table.InnerHtml += tbody.ToString();
+            _ipsum.Add(table.ToString());
+            return this;
+
+        }
+        private string RandomDay()
+        {
+            DateTime start = new DateTime(1995, 1, 1);
+            int range = (DateTime.Today - start).Days;
+            return string.Format("{0:dd/MM/yyyy}",start.AddDays(_gen.Next(range)));
+        }
+        private string RandomNumber()
+        {
+            
+
+            int range = 5000;
+            return string.Format("{0:#,##0.00}",_gen.Next(range));
         }
 
         private Ipsum CreateListHTMLIpsum(string outer, string inner, int listCount, bool links, object liAttributes, int wordCount, object ulAttributes)
