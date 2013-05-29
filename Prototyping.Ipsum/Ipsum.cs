@@ -251,35 +251,35 @@ namespace Prototyping.Ipsum
 
 
         /// <summary>
-        /// Create a Table with random content USAGE: @Html.Ipsum().Table(10,6,new string[]{"d","t","n"} );
+        /// Create a Table with random content USAGE: @Html.Ipsum().table(10,6,new string[]{"d","t","n"} );
         /// </summary>
         /// <param name="rows">Number of Rows</param>
         /// <param name="columns">Number of Columns</param>
-        /// <param name="ColumnTypes">A string Array representing the data types to put in the random generated column content t = Text, n= a number between 0 to 5000, d= a date between 1995 and now </param>
+        /// <param name="columnTypes">A string Array representing the data types to put in the random generated column content t = Text, n= a number between 0 to 5000, d= a date between 1995 and now </param>
         /// <returns></returns>
-        public Ipsum Table(int rows = 4, int columns = 4, string[] ColumnTypes = null)
+        public Ipsum table(int rows = 4, int columns = 4, string[] columnTypes = null)
         {
-            return CreateTableHTMLIpsum(rows, columns, ColumnTypes);
+            return CreateTableHTMLIpsum(rows, columns, columnTypes);
         }
 
-        private Ipsum CreateTableHTMLIpsum(int rows, int columns, string[] ColumnTypes)
+        private Ipsum CreateTableHTMLIpsum(int rows, int columns, string[] columnTypes)
         {
             List<string> DataTypes = new List<string>();
-            if (ColumnTypes == null)
+            if (columnTypes == null)
             {
                 for (int d = 0; d < columns; d++)
                 {
                     DataTypes.Add( "t");
                 }
             }
-            else if (ColumnTypes.Count() < columns)
+            else if (columnTypes.Count() < columns)
             {
-                int count = ColumnTypes.Count() - 1;
+                int count = columnTypes.Count() - 1;
                 for (int d = 0; d < count; d++) {
-                    DataTypes.Add(ColumnTypes[d]);                
+                    DataTypes.Add(columnTypes[d]);                
                 }
                 for (int d = count; d < columns; d++) {
-                    DataTypes.Add(ColumnTypes[count]);
+                    DataTypes.Add(columnTypes[count]);
                 }
             }
 

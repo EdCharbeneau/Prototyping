@@ -52,6 +52,9 @@ You can see a demo as part of the tutorial in *Responsive design using Foundatio
 http://www.simple-talk.com/dotnet/asp.net/responsive-design-using-foundation-with-asp.net-mvc/
 
 ##### Changelog
+**1.2**
+Added table element support (Thx, Martin  https://github.com/martic)
+
 **1.1**
 Added basic dd > dl element support
 
