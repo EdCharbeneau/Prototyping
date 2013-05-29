@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Prototyping_MVC</id>
+        <version>1.2</version>
+        <title>Prototyping for MVC</title>
+        <authors>Ed Charbeneau</authors>
+        <owners>Ed Charbeneau</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Prototyping is a collection of helpers for MVC to assist with wireframing.
+
+Quickly generate lorem ipsum for wireframing using the Ipsum helper and fluent api. @Html.Ipsum().h1().p().h2().p()
+
+Easily generate placeholder images using the Placehold helper. @Html.Placehold(300, 400).</description>
+        <summary>Prototyping is a collection of helpers for MVC to assist with wireframing. The collection contains a helper for generating lorem ipsum, and a helper for generating image placeholders.</summary>
+        <releaseNotes>1.2
+Added table element
+
+1.1
+Added dl &gt; dd element
+
+1.0
+Initial release
+
+Placeholder helper uses the http://placehold.it service and requires a network connection.
+Credits to http://code.google.com/p/nlipsum/ for the NLipsum generator.</releaseNotes>
+        <copyright>Ed Charbeneau Copyright 2012</copyright>
+        <tags>Prototyping Wireframing HTML MVC Ipsum</tags>
+    </metadata>
+    <files>
+        <file src="..\Prototyping.Ipsum\examples.txt" target="content\Ipsum_examples.txt" />
+        <file src="..\Prototyping.Ipsum\bin\Release\NLipsum.Core.dll" target="lib\NLipsum.Core.dll" />
+        <file src="..\Prototyping.Ipsum\bin\Release\Prototyping.Ipsum.dll" target="lib\Prototyping.Ipsum.dll" />
+        <file src="..\Prototyping.Ipsum\bin\Release\Prototyping.Ipsum.XML" target="lib\Prototyping.Ipsum.XML" />
+        <file src="..\Prototyping.Placeholdit\bin\Release\Prototyping.Placeholdit.dll" target="lib\Prototyping.Placeholdit.dll" />
+        <file src="..\Prototyping.Placeholdit\bin\Release\Prototyping.Placeholdit.XML" target="lib\Prototyping.Placeholdit.XML" />
+    </files>
+</package>
